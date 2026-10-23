@@ -535,3 +535,150 @@ a:hover {
 .beta-alert p {
     margin: 0;
 }
+
+/* -----------------------------------------------------------
+   CONTACT FORM (Lesson 08)
+   Each fieldset groups related controls, and its legend names the
+   group. Screen readers announce the legend when focus enters the
+   group. Labels sit on their own line above text boxes, the dropdown
+   and the message box. Radio buttons and checkboxes have their label
+   right after them.
+   ----------------------------------------------------------- */
+
+form fieldset {
+    border: 1px solid #2a6478;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem 1.25rem;   /* top, left-and-right, bottom */
+    margin: 0 0 1.5rem;                 /* space between fieldsets */
+}
+
+form legend {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: rgb(79, 209, 197);           /* bright aqua, like the h2 headings */
+    padding: 0 0.5rem;
+}
+
+/* The radio button and checkbox groups sit inside Your Request,
+   with a dashed border so they look like smaller groups. */
+form fieldset.choice-group {
+    border-style: dashed;
+    margin: 1rem 0;
+}
+
+form fieldset.choice-group legend {
+    font-size: 1.05rem;
+    color: rgb(224, 242, 241);          /* pale seafoam */
+}
+
+/* Label on its own line, control below it. */
+.form-field {
+    margin: 1rem 0 0;
+}
+
+.form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.35rem;
+}
+
+.required-note {
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Text boxes, the dropdown and the message box fill the form's width
+   and use the body font. The border is light enough to see clearly
+   against the dark background. */
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #0b1d26;          /* dark, like the page */
+    color: rgb(224, 242, 241);
+    border: 2px solid #5b9bb0;          /* lighter teal, easy to see */
+    border-radius: 6px;
+}
+
+form textarea {
+    resize: vertical;                   /* can be made taller, not wider */
+}
+
+/* Radio buttons and checkboxes: control first, label right after. */
+.choice {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.5rem 0;
+}
+
+.choice input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    accent-color: #4fd1c5;              /* aqua when checked */
+}
+
+/* Focus: a thick aqua outline, with the border turning aqua too. */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 3px solid #4fd1c5;
+    outline-offset: 2px;
+    border-color: #4fd1c5;
+}
+
+/* Send and Clear buttons look like the nav link buttons. */
+.form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.form-buttons button {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid #2a6478;
+    border-radius: 999px;
+    color: rgb(224, 242, 241);
+    background-color: #0b2330;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='20' viewBox='0 0 80 20'%3E%3Cpath d='M0 8 Q10 2 20 8 T40 8 T60 8 T80 8' fill='none' stroke='%2314394a' stroke-width='3'/%3E%3Cpath d='M0 17 Q10 11 20 17 T40 17 T60 17 T80 17' fill='none' stroke='%23102f3d' stroke-width='3'/%3E%3C/svg%3E");
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-buttons button:hover,
+.form-buttons button:focus {
+    background-color: #4fd1c5;
+    background-image: none;
+    color: #0b1d26;
+    border-color: #4fd1c5;
+}
+
+.form-buttons button:focus {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* On a phone, each button fills the width of the form. */
+@media (max-width: 768px) {
+    .form-buttons button {
+        width: 100%;
+    }
+}
+
+/* Spam trap on the contact form: hidden from everyone, including
+   screen readers and the keyboard. Only robots fill it in.
+   The selector matches the form text box rule above in specificity,
+   and comes later, so display none wins over display block. */
+form input.spam-trap {
+    display: none;
+}

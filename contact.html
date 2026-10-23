@@ -30,7 +30,7 @@
 
     <main id="main-content" tabindex="-1">
 
-        <p class="page-overview">This is the Contact page. It has one section below, called Get In Touch, which holds a short note followed by my email address as a link. After that section you will reach the page footer, which repeats my name and email address.</p>
+        <p class="page-overview">This is the Contact page. It has two sections below. The first, Get In Touch, holds a short note followed by my email address as a link. The second, Collaboration Request, holds a form in three groups: About You, with your name and email; Your Request, with the kind of request, the genres you are interested in, and how you would like me to reply; and Your Message. The form ends with a Send Collaboration Request button and a Clear Form button. Sending the form emails your request to me and takes you to a thank-you page. After that section you will reach the page footer, which repeats my name and email address.</p>
 
         <section aria-labelledby="contact-heading">
             <h2 id="contact-heading">Get In Touch</h2>
@@ -38,6 +38,102 @@
             <ul>
                 <li>Email: <a href="mailto:russellhinderman425@gmail.com">russellhinderman425@gmail.com</a></li>
             </ul>
+        </section>
+
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Collaboration Request</h2>
+            <p>Want to make music together? Fill out this form to reach out about a collaboration. Fields marked required must be filled in before the form can be sent.</p>
+
+            <form action="https://formsubmit.co/russellhinderman425@gmail.com" method="post">
+
+                <!-- FormSubmit settings. These hidden fields are read by FormSubmit, the free
+                     service that emails each request to me. Visitors never see them. -->
+                <input type="hidden" name="_subject" value="New collaboration request from your music website">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://devhinderman2026.github.io/the-artist-who-only-uses-ears/thank-you.html">
+                <!-- Spam trap: people never see or reach this box, but spam robots fill it in,
+                     and FormSubmit throws away any request where it is filled. -->
+                <input type="text" name="_honey" class="spam-trap" autocomplete="off">
+
+                <fieldset>
+                    <legend>About You</legend>
+
+                    <div class="form-field">
+                        <label for="visitor-name">Name <span class="required-note" aria-hidden="true">(required)</span></label>
+                        <input type="text" id="visitor-name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="visitor-email">Email <span class="required-note" aria-hidden="true">(required)</span></label>
+                        <input type="email" id="visitor-email" name="email" autocomplete="email" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Request</legend>
+
+                    <fieldset class="choice-group">
+                        <legend>Kind of request</legend>
+                        <div class="choice">
+                            <input type="radio" id="request-cowrite" name="request" value="co-write">
+                            <label for="request-cowrite">Co-write a track</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="request-remix" name="request" value="remix">
+                            <label for="request-remix">Remix</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="request-feature" name="request" value="feature">
+                            <label for="request-feature">Feature on a track</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="request-other" name="request" value="other">
+                            <label for="request-other">Other</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="choice-group">
+                        <legend>Genres you are interested in</legend>
+                        <div class="choice">
+                            <input type="checkbox" id="genre-electronic" name="genres" value="electronic">
+                            <label for="genre-electronic">Electronic</label>
+                        </div>
+                        <div class="choice">
+                            <input type="checkbox" id="genre-metal" name="genres" value="metal">
+                            <label for="genre-metal">Metal</label>
+                        </div>
+                        <div class="choice">
+                            <input type="checkbox" id="genre-ambient" name="genres" value="ambient">
+                            <label for="genre-ambient">Ambient</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-field">
+                        <label for="reply-method">Preferred way to reply</label>
+                        <select id="reply-method" name="reply">
+                            <option value="email">Email</option>
+                            <option value="phone">Phone call</option>
+                            <option value="video">Video call</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Message</legend>
+
+                    <div class="form-field">
+                        <label for="visitor-message">Message <span class="required-note" aria-hidden="true">(required)</span></label>
+                        <textarea id="visitor-message" name="message" rows="6" required></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="form-buttons">
+                    <button type="submit">Send Collaboration Request</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+
+            </form>
         </section>
 
     </main>
